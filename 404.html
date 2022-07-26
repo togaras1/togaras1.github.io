@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--404 PAGE NOT FOUND-->
+<!--NOTHING HIDDEN HERE-->
+
+<style>
+body{
+margin:0;
+padding:0;
+border:0;
+}
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/p5@1.4.2/lib/p5.js"></script>
+<script>
+var errorcode = "404";
+var errormessage = "PAGE NOT FOUND";
+let pg404;
+let rate = 5;
+function setup(){
+  createCanvas(windowWidth,windowHeight);
+  generate404();
+}
+function generate404(){
+  pg404 = createGraphics(windowWidth/rate,windowHeight/rate);
+  fontResizeRate = windowWidth/1000
+  pg404.background(128);
+  pg404.textSize(fontResizeRate*16*rate); // 80
+  pg404.fill(255);
+  pg404.text(errorcode,windowWidth/rate/2-fontResizeRate*15*rate,windowHeight/rate/2+fontResizeRate*3*rate); // 50
+  console.log(fontResizeRate*4*rate)
+  if(fontResizeRate*4*rate<14){
+    pg404.textSize(fontResizeRate*6*rate);
+    messages = errormessage.split(' ');
+    messages.forEach((e,i) => pg404.text(e,windowWidth/rate/2-fontResizeRate*15*rate,windowHeight/rate/2+fontResizeRate*10*rate+fontResizeRate*6*rate*i)); // 40
+  }else{
+    pg404.textSize(fontResizeRate*4*rate);
+    pg404.text(errormessage,windowWidth/rate/2-fontResizeRate*18*rate,windowHeight/rate/2+fontResizeRate*8*rate); // 40
+  }
+}
+function draw(){
+  background(0);
+  textSize(8);
+  fill(200);
+  for(let x = 0; x < pg404.width; x+=1.5){
+    for(let y = 0; y < pg404.height; y+=1.5){
+      c=pg404.get(x,y)
+      if(red(c)==255 & green(c)==255 & blue(c)==255){
+        if(random() < 0.4)
+          text(0,x*rate,y*rate);
+        else
+          text(4,x*rate,y*rate);
+      }
+    }
+  }
+}
+function windowResized(){
+  resizeCanvas(windowWidth, windowHeight);
+  generate404();
+}
+</script>
