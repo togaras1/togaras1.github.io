@@ -27,7 +27,7 @@ function generate404(){
   pg404.textSize(fontResizeRate*16*rate); // 80
   pg404.fill(255);
   pg404.text(errorcode,windowWidth/rate/2-fontResizeRate*15*rate,windowHeight/rate/2+fontResizeRate*3*rate); // 50
-  console.log(fontResizeRate*4*rate)
+  textStyle(BOLD);
   if(fontResizeRate*4*rate<14){
     pg404.textSize(fontResizeRate*6*rate);
     messages = errormessage.split(' ');
@@ -36,6 +36,7 @@ function generate404(){
     pg404.textSize(fontResizeRate*4*rate);
     pg404.text(errormessage,windowWidth/rate/2-fontResizeRate*18*rate,windowHeight/rate/2+fontResizeRate*8*rate); // 40
   }
+  textStyle(NORMAL);
 }
 function draw(){
   background(0);
