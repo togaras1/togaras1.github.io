@@ -38,7 +38,7 @@ function generate404(){
   }
   textStyle(NORMAL);
 }
-function draw(){
+var notfound = setInterval(function(){
   background(0);
   textSize(8);
   fill(200);
@@ -53,7 +53,7 @@ function draw(){
       }
     }
   }
-}
+},404);
 function windowResized(){
   resizeCanvas(windowWidth, windowHeight);
   generate404();
