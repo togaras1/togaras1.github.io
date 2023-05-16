@@ -1,0 +1,354 @@
+@charset "utf-8";
+
+html {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  overflow-y: scroll;
+  -webkit-text-size-adjust: 100%;
+}
+
+*,
+::before,
+::after {
+  background-repeat: no-repeat;
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+::before,
+::after {
+  text-decoration: inherit;
+  vertical-align: inherit;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+footer,
+header,
+main,
+nav {
+  display: block;
+}
+
+#navbutton{
+  position: absolute;
+  left: 5%;
+  top: 1%;
+
+  width: 100px;
+  height:20px;
+
+  background-image: url(../img/jancode.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 8006;
+}
+
+.navmenu{
+  visibility: hidden;
+  opacity: 0;
+  position: fixed;
+  top:0;  
+  left:0;
+  width: 100%;
+  height:100%;
+  background-color: #FFF;
+  z-index: 4719;
+  transition: 0.5s;
+
+  text-align: center;
+}
+
+.navmenu.show{
+  visibility: visible;
+  opacity: 1;
+}
+
+ul{
+  list-style: none;
+}
+
+a{
+  text-decoration: none;
+}
+
+a:link{ color:#000; }
+a:hover{ text-shadow: 1px 2px 3px #808080; }
+a:visited{ color:#000; }
+
+.list_nav{
+  position: absolute;
+  transform: translateY(-50%);
+  top: 50%;
+  left:0;
+  width:100%;
+  min-width: 100%;
+  background-color: #FFF;
+  font-size: 24px;
+}
+
+.list_nav_item{
+  margin: 5px 0;
+}
+
+@font-face{
+  font-family: "Akihabara16";
+  src: url("../font/KH-Dot-Akihabara-16.woff") format("woff");
+}
+
+@font-face{
+  font-family: "Dougenzaka12";
+  src: url("../font/KH-Dot-Dougenzaka-12.woff") format("woff");
+}
+
+@font-face{
+  font-family: "Dougenzaka16";
+  src: url("../font/KH-Dot-Dougenzaka-16.woff") format("woff");
+}
+
+@font-face{
+  font-family: "Hatchoubori16";
+  src: url("../font/KH-Dot-Hatchoubori-16.woff") format("woff");
+}
+
+@font-face{
+  font-family: "Hibiya24";
+  src: url("../font/KH-Dot-Hibiya-24.woff") format("woff");
+}
+
+@font-face{
+  font-family: "Hibiya32";
+  src: url("../font/KH-Dot-Hibiya-32.woff") format("woff");
+}
+
+@font-face{
+  font-family: "Kagurazaka12";
+  src: url("../font/KH-Dot-Kagurazaka-12.woff") format("woff");
+}
+
+@font-face{
+  font-family: "Ningyouchou16";
+  src: url("../font/KH-Dot-Ningyouchou-16.woff") format("woff");
+}
+
+.text{
+  font-family: 'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ','Meiryo';
+
+  .profile h3{
+    font-size: 40px;
+  }
+  .profile h4{
+    font-size: 28px;
+  }
+  .profile p{
+    font-size: 20px;
+  }
+}
+
+.ff1{
+  font-family:"Akihabara16";
+}
+.ff2{
+  font-family:"Dougenzaka12";
+}
+.ff3{
+  font-family:"Dougenzaka16";
+}
+.ff4{
+  font-family:"Hibiya24";
+}
+.ff5{
+  font-family:"Hibiya32";
+}
+.ff6{
+  font-family:"Kagurazaka12";
+}
+.ff7{
+  font-family:"Ningyouchou16";
+}
+
+.container{
+  overflow-x: hidden;
+}
+
+.content{
+  width: 100%;
+  height:100%;
+  max-width: 1270px;
+  max-height:720px;
+  margin: 0 auto;
+  padding: 100px 25px;
+  position: relative;
+  display: flex;
+  flex-wrap:wrap;
+}
+
+.icon{
+  width: calc(50% - 10px);
+  height:calc(50% - 10px);
+  margin: 0 20px;
+  max-width: 512px;
+  max-height:512px;
+}
+
+.profile{
+  width: calc(50% - 30px);
+  margin: 40px 0px 0px 80px;
+}
+
+.lo-fi{
+  .profile h3{
+    font-size: 44px;
+  }
+  .profile h4{
+    font-size: 34px;
+    padding: 4px;
+  }
+  .profile p{
+    font-size: 24px;
+    padding: 4px;
+  }
+}
+
+.dogtag{
+  width: 100%;
+  margin: 30px 20px;
+  font-size: 16px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.identify{
+  width: 40%;
+}
+
+.qrcode{
+  width: 40%;
+  height:128px;
+  max-width: 128px;
+  max-height:128px;
+  margin: 0 80px 0 80px;
+
+  .vhs{
+    .vhs_image{
+      height:100%;
+      width :100%; 
+    }
+  }
+}
+
+.code39{
+  width: 100%;
+  height:50%;
+}
+
+.vhs{
+  position: relative;
+  width: 100%;
+  height:100%;
+  max-width: 100%;
+  max-height:100%;
+}
+
+.list_image {
+  height: 50vw;
+}
+
+.list_image {
+  height: 450px;
+}
+
+.vhs_image {
+  position: absolute;
+  width: calc(100% + 8px * 2);
+  height: calc(100% + 40px * 2);
+  background-size: cover;
+}
+
+.vhs.-bitcrash .vhs_image:nth-child(n+2) {
+  opacity: 0.7;
+}
+
+.vhs.-bitcrash .vhs_image:nth-child(2) {
+  transform: translate3d(0,10%,0) scale3d(-1,-1,0);
+  animation: bitcrash-anim1 2s infinite linear alternate;
+}
+.vhs.-bitcrash .vhs_image:nth-child(3) {
+  transform: translate3d(0,35%,0) scale3d(1,0.2,1);
+  background-repeat: repeat-y;
+  animation: bitcrash-anim4 0.1s infinite linear alternate;
+}
+.vhs.-bitcrash .vhs_image:nth-child(4) {
+  animation: bitcrash-anim5 2s infinite linear alternate;
+}
+.vhs.-bitcrash .vhs_image:nth-child(5) {
+  animation: bitcrash-anim6 0.2s infinite linear normal;
+}
+.vhs.-bitcrash .vhs_image:nth-child(6) {
+  animation: bitcrash-anim6-5 0.25s linear infinite normal;
+}
+
+@keyframes bitcrash-anim1{
+}
+
+@keyframes bitcrash-anim4{
+  0% {
+    clip-path: polygon(-30% 90%, 100% 90%, 130% 100%, 0% 100%);
+  }
+  50% {
+    clip-path: polygon(-30% 85%, 100% 85%, 130% 100%, 0% 100%);
+  }
+  75% {
+    clip-path: polygon(-30% 88%, 100% 88%, 130% 100%, 0% 100%);
+  }
+  100% {
+    clip-path: polygon(-30% 92%, 100% 92%, 130% 100%, 0% 100%);
+  }
+}
+
+@keyframes bitcrash-anim5{
+  0% {
+    clip-path: polygon(0 95%, 100% 95%, 100% 100%, 0% 100%);
+    transform: translate3d(0,30%,0) scale3d(1, 0.2, 1);
+  }
+  50% {
+    clip-path: polygon(0 96%, 100% 96%, 100% 100%, 0% 100%);
+    transform: translate3d(0,30%,0) scale3d(1, 0.2, 1);
+  }
+  100% {
+    transform: translate3d(0,30%,0) scale3d(1, 0.2, 1);
+    clip-path: polygon(0 95%, 100% 95%, 100% 100%, 0% 100%);
+  }
+}
+
+@keyframes bitcrash-anim6{
+  0% {
+    -webkit-clip-path: polygon(0 2%, 100% 2%, 100% 5%, 0 5%);
+    transform: translate3d(0,-0.3,0) scale3d(1,0.3,1);
+    clip-path: polygon(0 0%, 100% 0%, 100% 10%, 0 10%);
+    filter: invert(1) saturate(1.5);
+  }
+  100% {
+    -webkit-clip-path: polygon(0 70%, 100% 70%, 100% 80%, 0 80%);
+    transform: translate3d(0,0.5,0) scale3d(1,0.3,1);
+    clip-path: polygon(0 90%, 100% 90%, 100% 100%, 0 100%);
+  }
+}
+
+@keyframes bitcrash-anim6-5{
+  0% {
+    -webkit-clip-path: polygon(0 2%, 100% 2%, 100% 5%, 0 5%);
+    animation-delay: 0.25s;
+    transform: translate3d(0,-0.3,0) scale3d(1,0.3,1);
+    clip-path: polygon(0 0%, 100% 0%, 100% 10%, 0 10%);
+    filter: brightness(1.5);
+  }
+  100% {
+    -webkit-clip-path: polygon(0 70%, 100% 70%, 100% 80%, 0 80%);
+    transform: translate3d(0,0.5,0) scale3d(1,0.3,1);
+    clip-path: polygon(0 90%, 100% 90%, 100% 100%, 0 100%);
+  }
+}
