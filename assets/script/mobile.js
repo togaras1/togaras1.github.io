@@ -4,6 +4,5 @@ $(function(){
   $vhs_glitch.each(function(index, element){
     $(element)
       .find('.vhs_image')
-      .css({'display': 'none'});
   });
 })

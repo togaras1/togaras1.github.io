@@ -68,8 +68,7 @@ $(function(){
         .find('.vhs_image')
         .css({
           'background-image': 'url(' + vhs_image_src + ')',
-          'display': 'block'
-        })
+      });
 
       icon_current_id = icon_current_id % icon_len;
     });
