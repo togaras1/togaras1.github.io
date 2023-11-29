@@ -16,9 +16,10 @@ var image_or_none = function(){
 
   $vhs_glitch.each(function(index, element){
     if (windowWidth < pc){
-      $(element)
+      _fimg = $(element)
         .find('.vhs_image')
-        .css({'display': 'none'})
+        .css({'display': 'none'});
+      $(_fimg[0]).css({'display': 'block'});
     }else{
       $(element)
         .find('.vhs_image')
@@ -27,10 +28,8 @@ var image_or_none = function(){
   });
 }
 
-$(function(){
-  $(window).on("resize", function(){
-    image_or_none();
-  });
+$(window).on("resize", function(){
+  image_or_none();
 });
 
 $(window).on("load", function(){

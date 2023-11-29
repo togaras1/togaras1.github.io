@@ -5,4 +5,4 @@ $(function(){
     $(element)
       .find('.vhs_image')
   });
-})
+});
