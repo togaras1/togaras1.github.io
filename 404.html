@@ -12,60 +12,62 @@
     background-color: black;
     overflow: hidden;
   }
-  .bounce {
+  #bounce {
     position: relative;
-    filter: hue-rotate(45deg);
+    display: none;
+    filter: hue-rotate(30deg), brightness(5.0);
     width: 300px;
-    height:300px;
+    height:200px;
     background-size: contain;
     background-repeat:no-repeat;
     background-image : url("./assets/img/404notfound.png");
-    animation:
-        bounce-h-anime 5s linear infinite alternate,
-        bounce-w-anime 4s linear infinite alternate,
-        colorchange-anime 80s steps(4) infinite;
-  }
-
-  @keyframes colorchange-anime{
-    0%{
-      filter: hue-rotate(0deg);
-    }
-    25%{
-      filter: hue-rotate(90deg);
-    }
-    50%{
-      filter: hue-rotate(180deg);
-    }
-    75%{
-      filter: hue-rotate(60deg);
-    }
-    100%{
-      filter: hue-rotate(270deg);
-    }
-  }
-
-  @keyframes bounce-w-anime{
-    0%{
-      left:0%;
-    }
-    100%{
-      left: calc(100% - 300px);
-    }
-  }
-
-  @keyframes bounce-h-anime{
-    0%{
-      top:0%;
-    }
-    100%{
-      top: calc(100% - 200px);
-    }
   }
 </style>
 
 </head>
 
 <body class="">
-<div class="bounce"></div>
+<div id="bounce"></div>
 </body>
+<script>
+  fps = 59.94;
+  logo = document.getElementById("bounce");
+  x = document.body.clientHeight / 2;
+  y = document.body.clientWidth / 2;
+  vx = 4.5;
+  vy = 4.5;
+
+  function changecolor(){
+    logo.style.filter = "hue-rotate(" + 360 * Math.random() + "deg)"
+  }
+
+  setInterval(function(){
+    logo.style.display = "block";
+    logo.style.top = x + "px";
+    logo.style.left = y + "px";
+    
+    x += vx;
+    y += vy;
+
+    if (document.body.clientHeight - logo.style.height - logo.clientHeight < x || x < 0){
+      vx *= -1;
+      changecolor();
+    }
+    if (document.body.clientWidth - logo.style.width - logo.clientWidth < y || y < 0){
+      vy *= -1;
+      changecolor();
+    }
+
+    if (document.body.clientHeight - logo.style.height - logo.client < x)
+        x = document.body.clientHeight - logo.syle.height - logo.client;
+    if (document.body.clientWidth - logo.style.width - logo.clientWidth < y)
+        y = document.body.clientWidth - logo.style.width - logo.clientWidth;
+    if (x < 0)
+        x = 0;
+    if (y < 0)
+        y = 0;
+
+  }, 1000/59.94);
+
+</script>
 </html>
