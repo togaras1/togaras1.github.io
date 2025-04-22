@@ -75,6 +75,10 @@ a{
   text-decoration: none;
 }
 
+.hidden{
+  display: none;
+}
+
 a:link{ color:#000; }
 a:hover{ text-shadow: 1px 2px 3px #808080; }
 a:visited{ color:#000; }
@@ -351,4 +355,338 @@ a:visited{ color:#000; }
     transform: translate3d(0,0.5,0) scale3d(1,0.3,1);
     clip-path: polygon(0 90%, 100% 90%, 100% 100%, 0 100%);
   }
+}
+
+.works_image{
+  width: 384px;
+  height: 384px;
+  margin: 0 20px;
+  #max-width: 384px;
+  #max-height:384px;
+}
+
+.works_image svg{
+  position: abusolute;
+}
+
+#icon_arrival{
+  width: 384px;
+  height: 384px;
+}
+
+.icon_arrival_bg{
+  animation: icon_arrival_bg_anim 0.5s linear;
+}
+
+.icon_arrival_rect{
+  stroke-dasharray: 1024;
+  stroke-dashoffset: 1024;
+  animation: icon_arrival_rect_anim 0.5s linear;
+}
+
+.icon_arrival_right_tilt{
+  stroke-dasharray: 724;
+  stroke-dashoffset: 724;
+  animation: icon_arrival_tilt_right_anim 0.5s linear;
+}
+
+.icon_arrival_left_tilt{
+  stroke-dasharray: 724;
+  stroke-dashoffset: 724;
+  animation: icon_arrival_tilt_left_anim 0.5s linear;
+}
+
+.icon_arrival_fg{
+  animation: icon_arrival_fg_anim 0.5s linear;
+}
+
+@keyframes icon_arrival_bg_anim{
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+}
+
+@keyframes icon_arrival_rect_anim{
+  20% {
+    stroke-dashoffset: 1024;
+  }
+  40%{
+    stroke-dashoffset: 0;
+  }
+  100%{
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes icon_arrival_tilt_right_anim{
+  0%{
+    stroke-dashoffset: 724;
+  }
+  40% {
+    stroke-dashoffset: 724;
+  }
+  60%{
+    stroke-dashoffset: 0;
+  }
+  100%{
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes icon_arrival_tilt_left_anim{
+  0%{
+    stroke-dashoffset: 724;
+  }
+  60% {
+    stroke-dashoffset: 724;
+  }
+  80%{
+    stroke-dashoffset: 0;
+  }
+  100%{
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes icon_arrival_fg_anim{
+  0%{
+    fill-opacity: 0;
+  }
+  80%{
+    fill-opacity: 0;
+  }
+  100%{
+    fill-opacity: 1;
+  }
+}
+
+.icon_swap{
+  width: 384px;
+  height: 384px;
+  opacity: 1;
+}
+
+.icon_swap_bg{
+  opacity: 0;
+  animation: icon_swap_fade_anim 2.5s linear;
+}
+
+.icon_swap_fg{
+  opacity: 0.02;
+  animation: icon_swap_fg_fade_anim 2.5s ease;
+}
+
+@keyframes icon_swap_fg_fade_anim{
+  0%{
+    opacity: 0.64;
+  }
+  6%{
+    opacity: 0.3;
+  }
+  10%{
+    opacity: 0.4;
+  }
+  16%{
+    opacity: 0.02;
+  }
+  30%{
+    opacity: 0.04;
+  }
+  50%{
+    opacity: 0.02;
+  }
+  75%{
+    opacity: 0.07;
+  }
+  90%{
+    opacity: 0.09;
+  }
+  100%{
+    opacity: 0.02;
+  }
+}
+
+@keyframes icon_swap_fade_anim{
+  0%{
+    opacity: 1;
+  }
+  10%{
+    opacity: 1;
+  }
+  17%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 0;
+  }
+}
+
+.icon_swap_text{
+  text-anchor: middle;
+  dominant-baseline: middle;
+  font-size: 30px;
+  user-select: none;
+  opacity: 0;
+  animation: icon_swap_text_shaking_anim 0.3s steps(1) alternate infinite, icon_swap_text_blur_anim 2.5s ease alternate, icon_swap_fade_anim 2.5s linear;
+}
+
+@keyframes icon_swap_text_shaking_anim{
+  0%{
+    transform: translate(+0.02%, +0.75%);
+  }
+  10%{
+    transform: translate(+0.01%, -0.5%);
+  }
+  20%{
+    transform: translate(-0.02%, +0.3%);
+  }
+  30%{
+    transform: translate(+0.01%, +0.1%);
+  }
+  40%{
+    transform: translate(-0.02%, +0.2%);
+  }
+  50%{
+    transform: translate(-0.02%, -0.1%);
+  }
+  60%{
+    transform: translate(+0.3%, +0.2%);
+  }
+  70%{
+    transform: translate(-0.05%, +0.75%);
+  }
+  80%{
+    transform: translate(+0.07%, -0.7%);
+  }
+  80%{
+    transform: translate(-0.03%, -0.5%);
+  }
+  90%{
+    transform: translate(0.3%, 0.5%);
+  }
+  100%{
+    transform: translate(+1%, +1.5%);
+  }
+}
+
+@keyframes icon_swap_text_blur_anim{
+  0%{
+    opacity: 0.98;
+  }
+  3%{
+    opacity: 0.75;
+  }
+  6%{
+    opacity: 0.5;
+  }
+  9%{
+    opacity: 0.8;
+  }
+  11%{
+    opacity: 0.2;
+  }
+  12%{
+    opacity: 0.4;
+  }
+  15%{
+    opacity: 0;
+  }
+  18%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 0;
+  }
+}
+
+.works_icon_list{
+  position: abusolute;
+  margin: 0 0;
+}
+
+.works_icon{
+  position: absolute;
+  background-size: cover;
+}
+
+#works_dialog_text{
+  font-size: 32px;
+  user-select: none;
+}
+
+#dialog_text_active{
+  color: white;
+}
+
+#dialog_text_arrival_1{
+  color: rgb(192,192,192);
+}
+
+#dialog_text_arrival_2{
+  color: rgb(128,128,128);
+}
+
+#dialog_text_arrival_3{
+  color: rgb(64,64,64);
+}
+
+#dialog_text_arrival_4{
+  color: rgb(0,0,0);
+}
+
+.dialog_text_fd{
+  animation: text_arrival-anim 0.5s linear;
+}
+
+#dialog_text_hidden{
+  visibility: hidden;
+}
+
+.dialog_text_speed{
+  animation: timer-anim 0.5s linear;
+}
+
+@keyframes text_arrival-anim{
+  0%{
+    color: rgb(0,0,0);
+  }
+  100%{
+    color: rgb(255,255,255);
+  }
+}
+
+@keyframes timer-anim{
+  0%{
+  }
+  100%{
+  }
+}
+
+#works_dialog_error{
+  font-size: 32px;
+}
+
+.works_next_button{
+  animation: next_button_anim 1s alternate infinite;
+}
+
+.works_next_button:hover{
+  animation: next_button_hover 0.5s;
+}
+
+@keyframes next_button_anim{
+  0%{fill: rgb(128,128,128)}
+  20%{fill:rgb(196,196,196)}
+  40%{fill:rgb(255,255,255)}
+  60%{fill:rgb(196,196,196)}
+  80%{fill:rgb(128,128,128)}
+  100%{fill:rgb(96,96,96)}
+}
+
+@keyframes next_button_hover{
+  0%{}
+  100%{fill:rgb(255,255,255)}
 }
