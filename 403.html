@@ -1,0 +1,148 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>403 forbidden - togaras1</title>
+<meta name="viewport" content="width=device-width">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.8.0/p5.js"></script>
+<style>
+* {
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+</style>
+</head>
+
+<body class="">
+<script>
+let windowW = window.innerWidth;
+let windowH = window.innerHeight;
+let isLoaded = false;
+let glitch;
+let imgSrc;
+let imgMsk;
+let masked;
+
+function colorBar() {
+  imgSrc.noStroke();
+  imgSrc.fill(0, 0, 210);
+  imgSrc.rect(imgSrc.width / 7 * 0, 0, imgSrc.width / 6 * 1, imgSrc.height);
+  imgSrc.fill(0, 0, 0);
+  imgSrc.rect(imgSrc.width / 7 * 1, 0, imgSrc.width / 6 * 1, imgSrc.height);
+  imgSrc.fill(210, 0, 210);
+  imgSrc.rect(imgSrc.width / 7 * 2, 0, imgSrc.width / 6 * 1, imgSrc.height);
+  imgSrc.fill(0, 0, 0);
+  imgSrc.rect(imgSrc.width / 7 * 3, 0, imgSrc.width / 6 * 1, imgSrc.height);
+  imgSrc.fill(0, 210, 210);
+  imgSrc.rect(imgSrc.width / 7 * 4, 0, imgSrc.width / 6 * 1, imgSrc.height);
+  imgSrc.fill(0, 0, 0);
+  imgSrc.rect(imgSrc.width / 7 * 5, 0, imgSrc.width / 6 * 1, imgSrc.height);
+  imgSrc.fill(210, 210, 210);
+  imgSrc.rect(imgSrc.width / 7 * 6, 0, imgSrc.width / 6 * 1, imgSrc.height);
+
+  imgSrc.fill(25, 25, 100);
+  imgSrc.rect(imgSrc.width / 5 * 0, imgSrc.height / 4 * 3, imgSrc.width / 5 * 1, imgSrc.height / 4 * 1);
+  imgSrc.fill(240, 240, 240);
+  imgSrc.rect(imgSrc.width / 5 * 1, imgSrc.height / 4 * 3, imgSrc.width / 5 * 1, imgSrc.height / 4 * 1);
+  imgSrc.fill(100, 25, 100);
+  imgSrc.rect(imgSrc.width / 5 * 2, imgSrc.height / 4 * 3, imgSrc.width / 5 * 1, imgSrc.height / 4 * 1);
+  imgSrc.fill(25, 25, 25);
+  imgSrc.rect(imgSrc.width / 5 * 3, imgSrc.height / 4 * 3, imgSrc.width / 5 * 1, imgSrc.height / 4 * 1);
+
+  imgSrc.fill(0, 0, 0);
+  imgSrc.rect(imgSrc.width / 20 * 16, imgSrc.height / 4 * 3, imgSrc.width / 5 * 1, imgSrc.height / 4 * 1);
+  imgSrc.fill(25, 25, 25);
+  imgSrc.rect(imgSrc.width / 20 * 17, imgSrc.height / 4 * 3, imgSrc.width / 5 * 1, imgSrc.height / 4 * 1);
+  imgSrc.fill(50, 50, 50);
+  imgSrc.rect(imgSrc.width / 20 * 18, imgSrc.height / 4 * 3, imgSrc.width / 5 * 1, imgSrc.height / 4 * 1);
+  imgSrc.fill(75, 75, 75);
+  imgSrc.rect(imgSrc.width / 20 * 19, imgSrc.height / 4 * 3, imgSrc.width / 5 * 1, imgSrc.height / 4 * 1);
+
+  imgSrc.fill(210, 210, 210);
+  imgSrc.rect(imgSrc.width / 7 * 0, 0, imgSrc.width / 6 * 1, imgSrc.height / 3 * 2);
+  imgSrc.fill(210, 210, 0);
+  imgSrc.rect(imgSrc.width / 7 * 1, 0, imgSrc.width / 6 * 1, imgSrc.height / 3 * 2);
+  imgSrc.fill(0, 210, 210);
+  imgSrc.rect(imgSrc.width / 7 * 2, 0, imgSrc.width / 6 * 1, imgSrc.height / 3 * 2);
+  imgSrc.fill(0, 210, 0);
+  imgSrc.rect(imgSrc.width / 7 * 3, 0, imgSrc.width / 6 * 1, imgSrc.height / 3 * 2);
+  imgSrc.fill(210, 0, 210);
+  imgSrc.rect(imgSrc.width / 7 * 4, 0, imgSrc.width / 6 * 1, imgSrc.height / 3 * 2);
+  imgSrc.fill(210, 0, 0);
+  imgSrc.rect(imgSrc.width / 7 * 5, 0, imgSrc.width / 6 * 1, imgSrc.height / 3 * 2);
+  imgSrc.fill(0, 0, 210);
+  imgSrc.rect(imgSrc.width / 7 * 6, 0, imgSrc.width / 6 * 1, imgSrc.height / 3 * 2);
+}
+
+function setup() {
+    background(0);
+    createCanvas(window.screen.width, window.screen.height);
+    imgSrc = createGraphics(640, 540);
+    colorBar();
+
+    imgMsk = createGraphics(640, 540);
+    imgMsk.fill(255, 255, 255);
+  
+    imgMsk.textSize(335);
+    imgMsk.textAlign(CENTER);
+    imgMsk.text('403', imgMsk.width/2, imgMsk.height/2 + 50);
+  
+    imgMsk.textSize(100);
+    imgMsk.textAlign(CENTER);
+    imgMsk.text('FORBIDDEN', imgMsk.width/2, imgMsk.height/2 + 150);
+
+    (masked = imgSrc.get()).mask(imgMsk);
+}
+
+function draw() {
+    clear();
+    background(0);
+
+    if (random() < 0.25) {
+      colorShift(imgSrc);
+    }else{
+      tint(255, 255, 255, 215);
+      image(imgSrc, 0, 0, windowW, windowH);
+      noTint();
+    }
+
+    image(masked, 0, 0, windowW, windowH);
+
+    filter(BLUR, 1);
+
+    noStroke();
+    fill(0);
+    rect(windowW/2 - 200,windowH/2 - 40,400,80);
+    textAlign(CENTER);
+    fill(255);
+    textSize(40);
+    text('NO SIGNAL',windowW/2,windowH/2+13);
+}
+
+function colorShift(pict) {
+  let alp = 220;
+  let randSize = 50;
+  
+  blendMode(ADD);
+  tint(0, 0, 255, alp);
+  r = random(-randSize, randSize);
+  image(pict, r, 0, windowW + r, windowH);
+  tint(255, 0, 0, alp);
+  r = random(-randSize, randSize);
+  image(pict, r, 0, windowW + r, windowH);
+  tint(0, 255, 0, alp);
+  r = random(-randSize, randSize);
+  image(pict, r, 0, windowW + r, windowH);
+  noTint();
+  blendMode(BLEND);
+}
+
+function windowResized() {
+  windowW = window.innerWidth;
+  windowH = window.innerHeight;
+  resizeCanvas(windowW, windowH);
+}
+</script>
+</body>
+</html>
